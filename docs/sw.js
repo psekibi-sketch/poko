@@ -1,8 +1,10 @@
-// Poko English Kids - Service Worker for Offline PWA on iOS/iPadOS
-const CACHE_NAME = 'poko-english-pwa-v1';
+// Poko English Kids - Service Worker v2 (Full 52-Unit Curriculum & 10 Games)
+const CACHE_NAME = 'poko-english-pwa-v2';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
+  './curriculum_data.js',
+  './app.js',
   './manifest.json',
   './icon.svg'
 ];
@@ -31,21 +33,9 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      return fetch(event.request).then((networkResponse) => {
-        if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
-          return networkResponse;
-        }
-        const responseToCache = networkResponse.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, responseToCache);
-        });
-        return networkResponse;
-      }).catch(() => {
-        // Fallback to cached index.html for navigation
+    fetch(event.request).catch(() => {
+      return caches.match(event.request).then((cachedResponse) => {
+        if (cachedResponse) return cachedResponse;
         if (event.request.mode === 'navigate') {
           return caches.match('./index.html');
         }

@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Poko English Kids - Haftanın Günleri & İngilizce Öğrenme</title>
+  <title>Poko English Kids - 1, 2, 3 ve 4. Sınıf MEB Müfredatı & Oyunlar</title>
 
   <!-- PWA & Apple iOS Metadata -->
   <link rel="manifest" href="./manifest.json">
-  <meta name="theme-color" content="#3B82F6">
+  <meta name="theme-color" content="#2563EB">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Poko Kids">
@@ -20,17 +20,12 @@
       --primary-dark: #1D4ED8;
       --secondary: #10B981;
       --secondary-dark: #059669;
-      --accent-yellow: #F59E0B;
-      --accent-orange: #EA580C;
-      --accent-purple: #8B5CF6;
-      --danger: #EF4444;
-      --danger-dark: #DC2626;
       --bg: #F0F7FF;
       --card-bg: #FFFFFF;
       --text-main: #1E293B;
       --text-muted: #64748B;
-      --safe-top: env(safe-area-inset-top, 20px);
-      --safe-bottom: env(safe-area-inset-bottom, 20px);
+      --safe-top: env(safe-area-inset-top, 16px);
+      --safe-bottom: env(safe-area-inset-bottom, 16px);
     }
 
     * {
@@ -51,40 +46,40 @@
       flex-direction: column;
       overflow-x: hidden;
       padding-top: var(--safe-top);
-      padding-bottom: calc(var(--safe-bottom) + 70px);
+      padding-bottom: calc(var(--safe-bottom) + 78px);
     }
 
-    /* Header Bar */
+    /* Top Header */
     header {
       background: linear-gradient(135deg, #2563EB, #1D4ED8);
       color: white;
-      padding: 12px 18px;
+      padding: 12px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 4px 12px rgba(29, 78, 216, 0.25);
+      box-shadow: 0 4px 14px rgba(29, 78, 216, 0.25);
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 90;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 10px;
+      cursor: pointer;
     }
 
     .mascot-avatar {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       background: #FEF08A;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
+      font-size: 24px;
       border: 3px solid #F59E0B;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
       animation: bounceSmall 2s infinite ease-in-out;
     }
 
@@ -94,7 +89,7 @@
     }
 
     .brand-title {
-      font-size: 19px;
+      font-size: 18px;
       font-weight: 900;
       letter-spacing: -0.3px;
     }
@@ -108,274 +103,622 @@
     .header-stats {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
     }
 
     .badge-stat {
       background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(8px);
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 18px;
+      font-size: 13px;
       font-weight: 800;
       display: flex;
       align-items: center;
-      gap: 5px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      gap: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
     }
 
-    /* Container */
+    /* Main Content Container */
     main {
       flex: 1;
-      max-width: 540px;
+      max-width: 640px;
       margin: 0 auto;
       width: 100%;
-      padding: 16px;
+      padding: 14px;
     }
 
-    /* Tab View Switcher (Bottom Nav) */
-    nav.bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #FFFFFF;
+    .section-heading {
+      font-size: 16px;
+      font-weight: 900;
+      color: #1E3A8A;
+      margin: 16px 4px 10px;
+    }
+
+    /* Poko's Galactic Room Stage */
+    .room-stage-card {
+      border-radius: 26px;
+      padding: 18px 14px;
+      color: white;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.22);
+      margin-bottom: 16px;
+      border: 3px solid rgba(255,255,255,0.2);
+      text-align: center;
+    }
+
+    .room-top-badges {
       display: flex;
-      justify-content: space-around;
-      padding: 8px 12px calc(8px + var(--safe-bottom));
-      box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
-      z-index: 100;
-      border-top: 1px solid #E2E8F0;
+      justify-content: space-between;
+      margin-bottom: 10px;
     }
 
-    .nav-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-muted);
-      cursor: pointer;
-      padding: 4px 12px;
-      border-radius: 12px;
-      transition: all 0.2s;
-    }
-
-    .nav-item.active {
-      color: var(--primary);
-      background: #EFF6FF;
-      transform: translateY(-2px);
-    }
-
-    .nav-item .icon {
-      font-size: 22px;
-      margin-bottom: 2px;
-    }
-
-    /* Tactile 3D Buttons */
-    .btn-3d {
-      appearance: none;
-      border: none;
-      outline: none;
-      cursor: pointer;
+    .room-pill {
+      background: rgba(255,255,255,0.18);
+      padding: 4px 10px;
+      border-radius: 14px;
+      font-size: 12px;
       font-weight: 800;
-      border-radius: 18px;
-      padding: 14px 20px;
+    }
+
+    .poko-hero-center {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      transition: transform 0.1s, box-shadow 0.1s;
-      width: 100%;
-      font-size: 17px;
-      position: relative;
+      gap: 18px;
+      margin: 12px 0;
+      cursor: pointer;
     }
 
-    .btn-3d:active {
-      transform: translateY(4px);
+    .poko-floating-decor {
+      font-size: 38px;
+      animation: bounceSmall 2.4s infinite ease-in-out;
     }
+
+    .poko-avatar-circle {
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FEF08A, #F59E0B);
+      border: 4px solid #FFFFFF;
+      box-shadow: 0 0 25px rgba(251, 191, 36, 0.6);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .poko-fox-face {
+      font-size: 64px;
+    }
+
+    .poko-helmet-badge {
+      position: absolute;
+      top: -14px;
+      font-size: 32px;
+    }
+
+    .poko-weapon-badge {
+      position: absolute;
+      right: -12px;
+      bottom: 6px;
+      font-size: 30px;
+      transform: rotate(-15deg);
+    }
+
+    .poko-costume-badge {
+      position: absolute;
+      left: -10px;
+      bottom: 6px;
+      font-size: 26px;
+    }
+
+    .poko-speech-bubble {
+      background: rgba(255, 255, 255, 0.95);
+      color: #1E293B;
+      border-radius: 18px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 800;
+      margin: 10px auto;
+      max-width: 92%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      cursor: pointer;
+    }
+
+    .equipped-summary-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      opacity: 0.9;
+      margin-top: 6px;
+    }
+
+    /* Special Homework Card */
+    .special-homework-card {
+      background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+      border: 3px solid #F59E0B;
+      border-radius: 22px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 6px 0 #D97706, 0 10px 20px rgba(245, 158, 11, 0.25);
+      cursor: pointer;
+      margin-bottom: 16px;
+    }
+
+    .special-homework-card:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 #D97706;
+    }
+
+    .hw-left-icon {
+      font-size: 42px;
+    }
+
+    .hw-center-info {
+      flex: 1;
+    }
+
+    .hw-badge {
+      display: inline-block;
+      background: #D97706;
+      color: white;
+      font-size: 10px;
+      font-weight: 900;
+      padding: 2px 8px;
+      border-radius: 8px;
+      margin-bottom: 4px;
+    }
+
+    .hw-center-info h3 {
+      font-size: 17px;
+      font-weight: 900;
+      color: #78350F;
+    }
+
+    .hw-center-info p {
+      font-size: 12px;
+      font-weight: 700;
+      color: #92400E;
+      margin-top: 2px;
+    }
+
+    .hw-arrow {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #D97706;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+    }
+
+    /* Stations Grid */
+    .stations-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .station-card {
+      background: white;
+      border: 2.5px solid #CBD5E1;
+      border-radius: 20px;
+      padding: 14px 12px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.15s;
+    }
+
+    .station-card:active {
+      transform: scale(0.97);
+    }
+
+    .st-emoji {
+      font-size: 34px;
+      margin-bottom: 6px;
+    }
+
+    .st-title {
+      font-size: 14px;
+      font-weight: 900;
+      color: #1E293B;
+    }
+
+    .st-sub {
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748B;
+      margin-top: 2px;
+    }
+
+    /* Grade Selector Pills */
+    .grade-selector-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+
+    .grade-pill {
+      appearance: none;
+      border: 2px solid #CBD5E1;
+      background: white;
+      color: #475569;
+      padding: 10px 14px;
+      border-radius: 16px;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+      cursor: pointer;
+      box-shadow: 0 3px 0 #CBD5E1;
+    }
+
+    .grade-pill.active {
+      background: #2563EB;
+      color: white;
+      border-color: #1D4ED8;
+      box-shadow: 0 3px 0 #1E3A8A;
+    }
+
+    .map-banner {
+      background: linear-gradient(135deg, #DBEAFE, #EFF6FF);
+      border: 2px solid #3B82F6;
+      border-radius: 18px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+
+    .map-banner h3 {
+      font-size: 15px;
+      font-weight: 900;
+      color: #1E3A8A;
+    }
+
+    .map-banner p {
+      font-size: 12px;
+      font-weight: 700;
+      color: #475569;
+    }
+
+    /* Honeycomb Unit Path */
+    .honeycomb-path-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      padding: 8px 0 24px;
+    }
+
+    .honeycomb-unit-card {
+      width: 92%;
+      background: white;
+      border: 3px solid #3B82F6;
+      border-radius: 22px;
+      padding: 14px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.07);
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.15s;
+    }
+
+    .hc-badge {
+      position: absolute;
+      top: -10px;
+      right: 16px;
+      color: white;
+      font-size: 10px;
+      font-weight: 900;
+      padding: 3px 9px;
+      border-radius: 10px;
+    }
+
+    .hc-main-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hc-icon-hex {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      border: 2px solid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    .hc-info {
+      flex: 1;
+    }
+
+    .hc-title-tr {
+      font-size: 15px;
+      font-weight: 900;
+      color: #1E293B;
+    }
+
+    .hc-title-en {
+      font-size: 12px;
+      font-weight: 700;
+      color: #64748B;
+    }
+
+    .hc-stars {
+      font-size: 12px;
+      font-weight: 800;
+      color: #D97706;
+      margin-top: 3px;
+    }
+
+    .hc-play-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+    }
+
+    /* Games Hub Grid */
+    .games-hub-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .game-hub-card {
+      background: white;
+      border: 2.5px solid #3B82F6;
+      border-radius: 20px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .gh-icon {
+      font-size: 38px;
+      width: 52px;
+      text-align: center;
+    }
+
+    .gh-info {
+      flex: 1;
+    }
+
+    .gh-info h4 {
+      font-size: 15px;
+      font-weight: 900;
+      color: #1E293B;
+    }
+
+    .gh-info p {
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748B;
+    }
+
+    .gh-play {
+      background: #EFF6FF;
+      color: #2563EB;
+      font-size: 12px;
+      font-weight: 900;
+      padding: 8px 12px;
+      border-radius: 12px;
+    }
+
+    /* Fullscreen Modal Overlay */
+    #fullscreenModal {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 200;
+      display: none;
+      flex-direction: column;
+      overflow-y: auto;
+      padding-bottom: calc(var(--safe-bottom) + 24px);
+    }
+
+    .modal-top-bar {
+      padding: calc(var(--safe-top) + 10px) 16px 12px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .modal-back-btn {
+      background: rgba(255,255,255,0.22);
+      border: none;
+      color: white;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 6px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .modal-title {
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .modal-badge {
+      background: rgba(255,255,255,0.25);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 12px;
+    }
+
+    .modal-content-pad {
+      max-width: 580px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* Shared Quiz, Cards & Buttons */
+    .card {
+      background: white;
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.07);
+      border: 2px solid #E2E8F0;
+      margin-bottom: 14px;
+    }
+
+    .btn-3d {
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      font-weight: 800;
+      border-radius: 16px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .btn-3d:active { transform: translateY(3px); }
 
     .btn-primary {
-      background: var(--primary);
+      background: #3B82F6;
       color: white;
-      box-shadow: 0 6px 0 var(--primary-dark), 0 10px 18px rgba(37, 99, 235, 0.3);
-    }
-    .btn-primary:active {
-      box-shadow: 0 2px 0 var(--primary-dark);
+      box-shadow: 0 5px 0 #1D4ED8;
     }
 
     .btn-secondary {
-      background: var(--secondary);
+      background: #10B981;
       color: white;
-      box-shadow: 0 6px 0 var(--secondary-dark), 0 10px 18px rgba(16, 185, 129, 0.3);
-    }
-    .btn-secondary:active {
-      box-shadow: 0 2px 0 var(--secondary-dark);
+      box-shadow: 0 5px 0 #059669;
     }
 
     .btn-yellow {
       background: #FBBF24;
       color: #78350F;
-      box-shadow: 0 6px 0 #D97706, 0 10px 18px rgba(245, 158, 11, 0.3);
-    }
-    .btn-yellow:active {
-      box-shadow: 0 2px 0 #D97706;
+      box-shadow: 0 5px 0 #D97706;
     }
 
     .btn-voice {
       background: #EDE9FE;
       color: #6D28D9;
       border: 2px solid #C4B5FD;
-      box-shadow: 0 4px 0 #8B5CF6;
-      border-radius: 14px;
-      padding: 10px 14px;
-      font-size: 14px;
-      font-weight: 700;
-    }
-    .btn-voice:active {
-      transform: translateY(2px);
-      box-shadow: 0 2px 0 #8B5CF6;
-    }
-
-    /* Screen Cards */
-    .card {
-      background: var(--card-bg);
-      border-radius: 24px;
-      padding: 20px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-      border: 2px solid #E2E8F0;
-      margin-bottom: 16px;
-    }
-
-    /* Banner */
-    .banner {
-      background: linear-gradient(135deg, #FEF3C7, #FDE68A);
-      border: 2px solid #F59E0B;
-      border-radius: 20px;
-      padding: 16px;
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      margin-bottom: 18px;
-    }
-
-    .banner-icon {
-      font-size: 36px;
-    }
-
-    .banner-text h3 {
-      font-size: 16px;
-      font-weight: 900;
-      color: #78350F;
-      margin-bottom: 2px;
-    }
-
-    .banner-text p {
+      box-shadow: 0 3px 0 #8B5CF6;
+      border-radius: 12px;
+      padding: 8px 14px;
       font-size: 13px;
-      font-weight: 600;
-      color: #92400E;
+      font-weight: 800;
+      cursor: pointer;
     }
 
-    /* Exam Question Layout */
     .progress-bar-container {
       background: #E2E8F0;
       border-radius: 12px;
       height: 12px;
       overflow: hidden;
-      margin-bottom: 16px;
-      position: relative;
+      margin-bottom: 14px;
     }
 
     .progress-bar-fill {
       background: linear-gradient(90deg, #10B981, #059669);
       height: 100%;
-      width: 0%;
       transition: width 0.3s ease;
-      border-radius: 12px;
     }
 
     .exam-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .question-counter {
       background: #DBEAFE;
       color: #1E40AF;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
-      padding: 4px 12px;
-      border-radius: 16px;
+      padding: 4px 10px;
+      border-radius: 12px;
     }
 
     .question-type-badge {
       font-size: 11px;
       font-weight: 800;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 12px;
       background: #F1F5F9;
       color: #475569;
+      padding: 4px 10px;
+      border-radius: 12px;
     }
 
     .question-box {
       text-align: center;
-      padding: 16px 8px;
-      margin-bottom: 20px;
+      padding: 12px 6px;
+      margin-bottom: 16px;
     }
 
     .question-prompt {
-      font-size: 14px;
-      color: var(--text-muted);
+      font-size: 13px;
+      color: #64748B;
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .question-main-text {
       font-size: 26px;
       font-weight: 900;
       color: #1E3A8A;
-      line-height: 1.3;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .pronunciation-sub {
-      font-size: 14px;
+      font-size: 13px;
       color: #6B7280;
-      font-style: italic;
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    /* Question Options Grid */
     .options-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 12px;
-      margin-bottom: 18px;
+      gap: 10px;
+      margin-bottom: 14px;
     }
 
     .option-btn {
-      appearance: none;
-      background: #FFFFFF;
-      border: 3px solid #E2E8F0;
-      border-radius: 20px;
-      padding: 16px;
-      font-size: 18px;
+      background: white;
+      border: 2.5px solid #CBD5E1;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 17px;
       font-weight: 800;
       color: #1E293B;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       cursor: pointer;
       box-shadow: 0 4px 0 #CBD5E1;
-      transition: all 0.15s;
-    }
-
-    .option-btn:active {
-      transform: translateY(3px);
-      box-shadow: 0 1px 0 #CBD5E1;
     }
 
     .option-btn.correct {
@@ -383,7 +726,6 @@
       border-color: #10B981 !important;
       color: #065F46 !important;
       box-shadow: 0 4px 0 #059669 !important;
-      animation: pulseGreen 0.4s ease;
     }
 
     .option-btn.wrong {
@@ -391,134 +733,45 @@
       border-color: #EF4444 !important;
       color: #991B1B !important;
       box-shadow: 0 4px 0 #DC2626 !important;
-      animation: shake 0.4s ease;
     }
 
     .option-btn.reveal-correct {
       background: #F0FDF4 !important;
       border-color: #22C55E !important;
       color: #15803D !important;
-      box-shadow: 0 4px 0 #16A34A !important;
     }
 
-    @keyframes pulseGreen {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-      100% { transform: scale(1); }
-    }
-
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      20%, 60% { transform: translateX(-8px); }
-      40%, 80% { transform: translateX(8px); }
-    }
-
-    /* Explanation Banner */
     .explanation-box {
-      border-radius: 16px;
-      padding: 12px 16px;
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 16px;
+      border-radius: 14px;
+      padding: 12px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 12px;
       display: none;
     }
+    .explanation-box.success { background: #D1FAE5; color: #065F46; display: block; }
+    .explanation-box.fail { background: #FEE2E2; color: #991B1B; display: block; }
 
-    .explanation-box.success {
-      background: #D1FAE5;
-      color: #065F46;
-      border: 1px solid #10B981;
-      display: block;
-    }
-
-    .explanation-box.fail {
-      background: #FEE2E2;
-      color: #991B1B;
-      border: 1px solid #EF4444;
-      display: block;
-    }
-
-    /* Result Certificate Screen */
-    .result-container {
-      text-align: center;
-      padding: 24px 12px;
-    }
-
-    .result-badge {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #FBBF24, #D97706);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 58px;
-      margin: 0 auto 16px;
-      box-shadow: 0 8px 24px rgba(217, 119, 6, 0.4);
-      animation: bounceSmall 1.5s infinite;
-    }
-
-    .result-percentage {
-      font-size: 42px;
-      font-weight: 900;
-      color: #1E3A8A;
-      margin-bottom: 6px;
-    }
-
-    .result-score-detail {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-
-    .result-card {
-      background: #F8FAFC;
-      border: 2px solid #E2E8F0;
-      border-radius: 20px;
-      padding: 18px;
-      margin-bottom: 24px;
-      text-align: left;
-    }
-
-    .result-card h4 {
-      font-size: 15px;
-      font-weight: 800;
-      color: #0F172A;
-      margin-bottom: 8px;
-    }
-
-    .result-card p {
-      font-size: 14px;
-      color: #475569;
-      line-height: 1.5;
-    }
-
-    /* Days Study Cards List */
     .days-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 12px;
+      gap: 10px;
     }
 
     .day-card {
       background: white;
       border: 2px solid #E2E8F0;
-      border-radius: 18px;
-      padding: 16px;
+      border-radius: 16px;
+      padding: 12px 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-      transition: transform 0.15s;
-    }
-
-    .day-card:active {
-      transform: scale(0.98);
+      cursor: pointer;
     }
 
     .day-number {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border-radius: 12px;
       background: #EFF6FF;
       color: #2563EB;
@@ -530,29 +783,13 @@
       margin-right: 12px;
     }
 
-    .day-info {
-      flex: 1;
-    }
-
-    .day-en {
-      font-size: 19px;
-      font-weight: 900;
-      color: #1E293B;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .day-tr {
-      font-size: 13px;
-      font-weight: 700;
-      color: #64748B;
-    }
-
+    .day-info { flex: 1; }
+    .day-en { font-size: 17px; font-weight: 900; color: #1E293B; }
+    .day-tr { font-size: 13px; font-weight: 700; color: #64748B; }
     .day-phonetic {
       font-size: 11px;
-      font-weight: 600;
-      color: #3B82F6;
+      font-weight: 700;
+      color: #2563EB;
       background: #DBEAFE;
       padding: 2px 6px;
       border-radius: 6px;
@@ -561,32 +798,72 @@
     }
 
     .day-listen-btn {
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       border: none;
       background: #EFF6FF;
       color: #2563EB;
-      font-size: 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .result-container { text-align: center; padding: 20px 12px; }
+    .result-badge {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FBBF24, #D97706);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 50px;
+      margin: 0 auto 12px;
+    }
+    .result-percentage { font-size: 36px; font-weight: 900; color: #1E3A8A; }
+    .result-score-detail { font-size: 15px; font-weight: 700; color: #64748B; margin-bottom: 16px; }
+    .result-card { background: #F8FAFC; border: 2px solid #E2E8F0; border-radius: 16px; padding: 14px; margin-bottom: 16px; text-align: left; }
+
+    /* Bottom 5-Tab Navigation Bar */
+    nav.bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #FFFFFF;
+      display: flex;
+      justify-content: space-around;
+      padding: 6px 6px calc(6px + var(--safe-bottom));
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+      z-index: 150;
+      border-top: 1px solid #E2E8F0;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 10px;
+      font-weight: 800;
+      color: #64748B;
       cursor: pointer;
-      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+      padding: 4px 10px;
+      border-radius: 12px;
     }
 
-    .day-listen-btn:active {
-      background: #2563EB;
-      color: white;
+    .nav-item.active {
+      color: #2563EB;
+      background: #EFF6FF;
     }
 
-    /* Confetti Canvas */
+    .nav-item .icon {
+      font-size: 20px;
+      margin-bottom: 2px;
+    }
+
     #confettiCanvas {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       pointer-events: none;
       z-index: 999;
     }
@@ -594,686 +871,64 @@
 </head>
 <body>
 
-  <!-- Confetti particle canvas -->
   <canvas id="confettiCanvas"></canvas>
 
   <!-- Top App Bar -->
   <header>
-    <div class="brand">
-      <div class="mascot-avatar" id="mascotIcon" onclick="mascotSpeakGreeting()">🦊</div>
+    <div class="brand" onclick="switchMainTab('tabRoom')">
+      <div class="mascot-avatar">🦊</div>
       <div>
-        <div class="brand-title">Poko English</div>
-        <div class="brand-subtitle">Öğren & Sınav Ol 🗓️</div>
+        <div class="brand-title">Poko English Kids</div>
+        <div class="brand-subtitle">1-4. Sınıf MEB & Oyun Dünyası</div>
       </div>
     </div>
     <div class="header-stats">
-      <div class="badge-stat">🪙 <span id="coinCount">100</span></div>
-      <div class="badge-stat">⭐ <span id="starCount">12</span></div>
+      <div class="badge-stat">🪙 <span id="coinCount">250</span></div>
+      <div class="badge-stat">💎 <span id="gemCount">15</span></div>
+      <div class="badge-stat">⭐ <span id="starCount">24</span></div>
     </div>
   </header>
 
+  <!-- Main 5 Tab Views -->
   <main>
-    <!-- TAB 1: 21 Soruluk Haftanın Günleri Sınavı -->
-    <section id="tabExam">
-      <div class="banner">
-        <div class="banner-icon">📋</div>
-        <div class="banner-text">
-          <h3>Öğretmen Özel Ödevi: 21 Soru</h3>
-          <p>Okuma, seçme, Türkçe-İngilizce çeviri ve telaffuz sınavı!</p>
-        </div>
-      </div>
-
-      <!-- Active Quiz Card -->
-      <div class="card" id="quizCard">
-        <div class="progress-bar-container">
-          <div class="progress-bar-fill" id="progressBar"></div>
-        </div>
-
-        <div class="exam-header">
-          <span class="question-counter" id="questionCounter">Soru 1 / 21</span>
-          <span class="question-type-badge" id="questionTypeBadge">TR ➔ EN</span>
-        </div>
-
-        <div class="question-box">
-          <div class="question-prompt" id="questionPrompt">Türkçe günün İngilizcesini seç:</div>
-          <div class="question-main-text" id="questionMainText">Pazartesi</div>
-          <div class="pronunciation-sub" id="questionSubText"></div>
-          <button class="btn-voice" onclick="playCurrentQuestionAudio()" style="margin: 8px auto 0; display: inline-flex;">
-            🔊 Poko ile Dinle
-          </button>
-        </div>
-
-        <div class="options-grid" id="optionsGrid">
-          <!-- Dynamic options loaded by JS -->
-        </div>
-
-        <div class="explanation-box" id="explanationBox"></div>
-
-        <button class="btn-3d btn-primary" id="nextQuestionBtn" onclick="advanceNextQuestion()" style="display: none;">
-          Sıradaki Soruya Geç ➔
-        </button>
-      </div>
-
-      <!-- Result Scorecard Screen (Hidden until finished) -->
-      <div class="card result-container" id="resultCard" style="display: none;">
-        <div class="result-badge" id="resultEmoji">🏆</div>
-        <div class="result-percentage" id="percentageText">%100</div>
-        <div class="result-score-detail" id="scoreDetailText">21 Soru / 21 Doğru! Mükemmel!</div>
-
-        <div class="result-card">
-          <h4 id="teacherNoteTitle">🌟 Öğretmen Notu & Değerlendirme:</h4>
-          <p id="teacherNoteContent">
-            Tebrikler! Haftanın tüm 7 gününü hem Türkçe hem İngilizce okunuşları ve anlamlarıyla eksiksiz öğrendin!
-          </p>
-        </div>
-
-        <button class="btn-3d btn-secondary" onclick="startNewExam()" style="margin-bottom: 12px;">
-          🔄 Tekrar Sınav Ol (Yeni 21 Soru)
-        </button>
-        <button class="btn-3d btn-yellow" onclick="switchTab('tabDays')">
-          📖 7 Günü Sesli Tekrar Et
-        </button>
-      </div>
-    </section>
-
-    <!-- TAB 2: 7 Gün Kartları & Telaffuz Eğitimi -->
-    <section id="tabDays" style="display: none;">
-      <div class="banner">
-        <div class="banner-icon">🎧</div>
-        <div class="banner-text">
-          <h3>Haftanın 7 Günü Telaffuz Kartları</h3>
-          <p>Kartlara ve hoparlöre dokunarak doğru İngilizce telaffuzu dinle.</p>
-        </div>
-      </div>
-
-      <div class="days-grid" id="daysListContainer">
-        <!-- Filled by JS -->
-      </div>
-    </section>
-
-    <!-- TAB 3: Temel MEB İngilizce Kelimeler -->
-    <section id="tabVocab" style="display: none;">
-      <div class="banner">
-        <div class="banner-icon">🎨</div>
-        <div class="banner-text">
-          <h3>MEB İngilizce Temel Kelimeler</h3>
-          <p>Renkler, Sayılar ve Hayvanlar</p>
-        </div>
-      </div>
-
-      <div class="days-grid" id="vocabListContainer">
-        <!-- Filled by JS -->
-      </div>
-    </section>
+    <section id="tabRoom"></section>
+    <section id="tabMap" style="display:none;"></section>
+    <section id="tabGames" style="display:none;"></section>
+    <section id="tabShop" style="display:none;"></section>
+    <section id="tabLeague" style="display:none;"></section>
   </main>
 
-  <!-- Bottom Navigation Bar for iOS PWA -->
+  <!-- Fullscreen Lesson / Game Modal -->
+  <div id="fullscreenModal">
+    <div id="fullscreenModalBody"></div>
+  </div>
+
+  <!-- 5-Tab Bottom Navigation (Matches Android App) -->
   <nav class="bottom-nav">
-    <div class="nav-item active" id="navExam" onclick="switchTab('tabExam')">
-      <div class="icon">📝</div>
-      <div>21 Soru Sınavı</div>
+    <div class="nav-item active" id="nav_tabRoom" onclick="switchMainTab('tabRoom')">
+      <div class="icon">🏠</div>
+      <div>Odam</div>
     </div>
-    <div class="nav-item" id="navDays" onclick="switchTab('tabDays')">
-      <div class="icon">🗓️</div>
-      <div>7 Gün Kartı</div>
+    <div class="nav-item" id="nav_tabMap" onclick="switchMainTab('tabMap')">
+      <div class="icon">🗺️</div>
+      <div>52 Ünite</div>
     </div>
-    <div class="nav-item" id="navVocab" onclick="switchTab('tabVocab')">
-      <div class="icon">⭐</div>
-      <div>Kelime Bahçesi</div>
+    <div class="nav-item" id="nav_tabGames" onclick="switchMainTab('tabGames')">
+      <div class="icon">🎮</div>
+      <div>10 Oyun</div>
+    </div>
+    <div class="nav-item" id="nav_tabShop" onclick="switchMainTab('tabShop')">
+      <div class="icon">🛍️</div>
+      <div>Mağaza</div>
+    </div>
+    <div class="nav-item" id="nav_tabLeague" onclick="switchMainTab('tabLeague')">
+      <div class="icon">🏆</div>
+      <div>Karne & Lig</div>
     </div>
   </nav>
 
-  <script>
-    // -------------------------------------------------------------------------
-    // 1. DATA STRUCTURES: Days of the week & MEB content
-    // -------------------------------------------------------------------------
-    const DAYS_DATA = [
-      { num: 1, en: "Monday", tr: "Pazartesi", phonetic: "Mandei", isWeekend: false, emoji: "🎒" },
-      { num: 2, en: "Tuesday", tr: "Salı", phonetic: "Tyuzdei", isWeekend: false, emoji: "📚" },
-      { num: 3, en: "Wednesday", tr: "Çarşamba", phonetic: "Wenzdei", isWeekend: false, emoji: "🎨" },
-      { num: 4, en: "Thursday", tr: "Perşembe", phonetic: "Törzdei", isWeekend: false, emoji: "🚀" },
-      { num: 5, en: "Friday", tr: "Cuma", phonetic: "Fraydei", isWeekend: false, emoji: "🎉" },
-      { num: 6, en: "Saturday", tr: "Cumartesi", phonetic: "Satırdei", isWeekend: true, emoji: "🍕" },
-      { num: 7, en: "Sunday", tr: "Pazar", phonetic: "Sandei", isWeekend: true, emoji: "☀️" }
-    ];
-
-    const EXTRA_VOCAB = [
-      { en: "Red", tr: "Kırmızı", phonetic: "Red", cat: "Renkler 🔴" },
-      { en: "Blue", tr: "Mavi", phonetic: "Blu", cat: "Renkler 🔵" },
-      { en: "Yellow", tr: "Sarı", phonetic: "Yelou", cat: "Renkler 🟡" },
-      { en: "Green", tr: "Yeşil", phonetic: "Griin", cat: "Renkler 🟢" },
-      { en: "One", tr: "Bir (1)", phonetic: "Van", cat: "Sayılar 🔢" },
-      { en: "Two", tr: "İki (2)", phonetic: "Tu", cat: "Sayılar 🔢" },
-      { en: "Three", tr: "Üç (3)", phonetic: "Trii", cat: "Sayılar 🔢" },
-      { en: "Cat", tr: "Kedi", phonetic: "Ket", cat: "Hayvanlar 🐱" },
-      { en: "Dog", tr: "Köpek", phonetic: "Dog", cat: "Hayvanlar 🐶" },
-      { en: "Book", tr: "Kitap", phonetic: "Buk", cat: "Okul 📖" }
-    ];
-
-    // -------------------------------------------------------------------------
-    // 2. SOUND SYNTHESIZER (Web Audio API - 100% Offline & Instant on iOS)
-    // -------------------------------------------------------------------------
-    let audioCtx = null;
-    function getAudioContext() {
-      if (!audioCtx) {
-        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-        audioCtx = new AudioContextClass();
-      }
-      if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-      }
-      return audioCtx;
-    }
-
-    function playTone(freq, type, duration, delay = 0) {
-      try {
-        const ctx = getAudioContext();
-        setTimeout(() => {
-          const osc = ctx.createOscillator();
-          const gain = ctx.createGain();
-          osc.type = type;
-          osc.frequency.setValueAtTime(freq, ctx.currentTime);
-          gain.gain.setValueAtTime(0.18, ctx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
-          osc.connect(gain);
-          gain.connect(ctx.destination);
-          osc.start();
-          osc.stop(ctx.currentTime + duration);
-        }, delay);
-      } catch (e) {
-        console.log("Audio not allowed yet:", e);
-      }
-    }
-
-    function playSoundSuccess() {
-      playTone(523.25, 'triangle', 0.12, 0);   // C5
-      playTone(659.25, 'triangle', 0.14, 100); // E5
-      playTone(783.99, 'triangle', 0.28, 200); // G5
-    }
-
-    function playSoundError() {
-      playTone(280, 'sawtooth', 0.15, 0);
-      playTone(220, 'sawtooth', 0.25, 120);
-    }
-
-    function playSoundFanfare() {
-      playTone(440, 'triangle', 0.15, 0);
-      playTone(554.37, 'triangle', 0.15, 140);
-      playTone(659.25, 'triangle', 0.18, 280);
-      playTone(880, 'triangle', 0.45, 420);
-    }
-
-    // Native Speech Synthesis (Web Speech API)
-    function speakText(text, lang = 'en-US') {
-      try {
-        if ('speechSynthesis' in window) {
-          window.speechSynthesis.cancel();
-          const utterance = new SpeechSynthesisUtterance(text);
-          utterance.lang = lang;
-          utterance.rate = 0.9;
-          utterance.pitch = 1.1; // Cute child-friendly pitch
-          window.speechSynthesis.speak(utterance);
-        }
-      } catch (e) {
-        console.warn("Speech error:", e);
-      }
-    }
-
-    function mascotSpeakGreeting() {
-      playSoundSuccess();
-      speakText("Hello! Let's practice the days of the week together!");
-    }
-
-    // -------------------------------------------------------------------------
-    // 3. 21-QUESTION EXAM ENGINE
-    // -------------------------------------------------------------------------
-    let examQuestions = [];
-    let currentQuestionIndex = 0;
-    let correctCount = 0;
-    let wrongCount = 0;
-    let hasAnsweredCurrent = false;
-
-    // Generate 21 balanced questions
-    function generate21Questions() {
-      const questions = [];
-
-      // Type 1: TR -> EN for all 7 days (7 questions)
-      DAYS_DATA.forEach(d => {
-        const others = DAYS_DATA.filter(x => x.en !== d.en).sort(() => 0.5 - Math.random()).slice(0, 3);
-        const options = [d.en, ...others.map(o => o.en)].sort(() => 0.5 - Math.random());
-        questions.push({
-          typeBadge: "Türkçe ➔ İngilizce",
-          prompt: "Bu Türkçe günün İngilizcesi hangisidir?",
-          mainText: `${d.emoji} ${d.tr}`,
-          subText: `(${d.num}. gün)`,
-          correctAnswer: d.en,
-          options: options,
-          speechText: d.en,
-          explanation: `Doğru! "${d.tr}" gününün İngilizcesi "${d.en}"dır.`
-        });
-      });
-
-      // Type 2: EN -> TR for all 7 days (7 questions)
-      DAYS_DATA.forEach(d => {
-        const others = DAYS_DATA.filter(x => x.tr !== d.tr).sort(() => 0.5 - Math.random()).slice(0, 3);
-        const options = [d.tr, ...others.map(o => o.tr)].sort(() => 0.5 - Math.random());
-        questions.push({
-          typeBadge: "İngilizce ➔ Türkçe",
-          prompt: "What day is this in Turkish?",
-          mainText: `${d.en}`,
-          subText: `Okunuşu: "${d.phonetic}"`,
-          correctAnswer: d.tr,
-          options: options,
-          speechText: d.en,
-          explanation: `Aferin! "${d.en}" Türkçede "${d.tr}" günüdür.`
-        });
-      });
-
-      // Type 3: Logic, Sequencing & Weekend questions (7 questions)
-      questions.push({
-        typeBadge: "Sıralama & Mantık",
-        prompt: "Hangi gün Salı'dan (Tuesday) sonra gelir?",
-        mainText: "After Tuesday?",
-        subText: "Salı gününden sonra gelen gün...",
-        correctAnswer: "Wednesday",
-        options: ["Monday", "Wednesday", "Friday", "Sunday"].sort(() => 0.5 - Math.random()),
-        speechText: "Which day comes after Tuesday? Wednesday!",
-        explanation: "Harika! Tuesday (Salı) gününden sonra Wednesday (Çarşamba) gelir."
-      });
-
-      questions.push({
-        typeBadge: "Sıralama & Mantık",
-        prompt: "Hangi gün Cuma'dan (Friday) sonra gelir?",
-        mainText: "After Friday?",
-        subText: "Cuma'dan sonra gelen hafta sonu günü...",
-        correctAnswer: "Saturday",
-        options: ["Thursday", "Saturday", "Tuesday", "Monday"].sort(() => 0.5 - Math.random()),
-        speechText: "Which day comes after Friday? Saturday!",
-        explanation: "Süper! Friday'den (Cuma) sonra Saturday (Cumartesi) gelir."
-      });
-
-      questions.push({
-        typeBadge: "Hafta Sonu",
-        prompt: "Aşağıdakilerden hangisi bir Hafta Sonu (Weekend) günüdür?",
-        mainText: "Weekend Day? 🍕",
-        subText: "Okulun olmadığı hafta sonu günü...",
-        correctAnswer: "Sunday",
-        options: ["Wednesday", "Monday", "Thursday", "Sunday"].sort(() => 0.5 - Math.random()),
-        speechText: "Sunday is a weekend day!",
-        explanation: "Mükemmel! Saturday ve Sunday (Pazar) hafta sonudur."
-      });
-
-      questions.push({
-        typeBadge: "Sıralama",
-        prompt: "Haftanın İLK günü (First day) hangisidir?",
-        mainText: "The 1st Day? 🎒",
-        subText: "Haftanın 1. günü...",
-        correctAnswer: "Monday",
-        options: ["Sunday", "Tuesday", "Monday", "Friday"].sort(() => 0.5 - Math.random()),
-        speechText: "Monday is the first day of the week!",
-        explanation: "Doğru! Haftanın ilk günü Monday (Pazartesi)'dir."
-      });
-
-      questions.push({
-        typeBadge: "Sıralama",
-        prompt: "Haftanın 5. günü (Fifth day) hangisidir?",
-        mainText: "The 5th Day? 🎉",
-        subText: "Hafta içinin son okul günü...",
-        correctAnswer: "Friday",
-        options: ["Wednesday", "Thursday", "Friday", "Saturday"].sort(() => 0.5 - Math.random()),
-        speechText: "Friday is the fifth day of the week!",
-        explanation: "Harika! 5. gün Friday (Cuma)'dır."
-      });
-
-      questions.push({
-        typeBadge: "Dinle & Seç",
-        prompt: "Poko'nun seslendirdiği günü dinle ve seç:",
-        mainText: "Thursday 🔊",
-        subText: "Perşembe gününün doğru İngilizcesi...",
-        correctAnswer: "Thursday",
-        options: ["Tuesday", "Thursday", "Saturday", "Monday"].sort(() => 0.5 - Math.random()),
-        speechText: "Thursday",
-        explanation: "Doğru! Poko 'Thursday' (Perşembe) dedi."
-      });
-
-      questions.push({
-        typeBadge: "Sıralama & Mantık",
-        prompt: "Pazar gününden (Sunday) hemen ÖNCE hangi gün gelir?",
-        mainText: "Before Sunday?",
-        subText: "Pazar gününden bir önceki gün...",
-        correctAnswer: "Saturday",
-        options: ["Friday", "Saturday", "Monday", "Wednesday"].sort(() => 0.5 - Math.random()),
-        speechText: "Saturday comes before Sunday!",
-        explanation: "Aferin! Sunday'den bir gün önce Saturday (Cumartesi) gelir."
-      });
-
-      // Shuffle all 21 questions completely
-      return questions.sort(() => 0.5 - Math.random());
-    }
-
-    function startNewExam() {
-      examQuestions = generate21Questions();
-      currentQuestionIndex = 0;
-      correctCount = 0;
-      wrongCount = 0;
-      hasAnsweredCurrent = false;
-
-      document.getElementById('resultCard').style.display = 'none';
-      document.getElementById('quizCard').style.display = 'block';
-
-      renderCurrentQuestion();
-    }
-
-    function renderCurrentQuestion() {
-      hasAnsweredCurrent = false;
-      const q = examQuestions[currentQuestionIndex];
-
-      // Progress Bar
-      const progressPercent = ((currentQuestionIndex) / examQuestions.length) * 100;
-      document.getElementById('progressBar').style.width = `${progressPercent}%`;
-
-      document.getElementById('questionCounter').innerText = `Soru ${currentQuestionIndex + 1} / ${examQuestions.length}`;
-      document.getElementById('questionTypeBadge').innerText = q.typeBadge;
-      document.getElementById('questionPrompt').innerText = q.prompt;
-      document.getElementById('questionMainText').innerText = q.mainText;
-      document.getElementById('questionSubText').innerText = q.subText || '';
-
-      const explanationBox = document.getElementById('explanationBox');
-      explanationBox.style.display = 'none';
-      explanationBox.className = 'explanation-box';
-
-      document.getElementById('nextQuestionBtn').style.display = 'none';
-
-      // Auto-speak question word after a brief moment
-      setTimeout(() => {
-        speakText(q.speechText || q.mainText);
-      }, 250);
-
-      // Render options
-      const optionsGrid = document.getElementById('optionsGrid');
-      optionsGrid.innerHTML = '';
-
-      q.options.forEach((opt) => {
-        const btn = document.createElement('button');
-        btn.className = 'option-btn';
-        btn.innerHTML = `<span>${opt}</span><span style="opacity:0.4;">➔</span>`;
-        btn.onclick = () => handleSelectOption(btn, opt, q);
-        optionsGrid.appendChild(btn);
-      });
-    }
-
-    function handleSelectOption(buttonElement, selectedText, question) {
-      if (hasAnsweredCurrent) return;
-      hasAnsweredCurrent = true;
-
-      const isCorrect = (selectedText === question.correctAnswer);
-      const allButtons = document.querySelectorAll('.option-btn');
-
-      const explanationBox = document.getElementById('explanationBox');
-
-      if (isCorrect) {
-        correctCount++;
-        buttonElement.classList.add('correct');
-        playSoundSuccess();
-        triggerConfetti(20);
-
-        explanationBox.innerText = `🌟 ${question.explanation}`;
-        explanationBox.classList.add('success');
-        explanationBox.style.display = 'block';
-
-        // Add 5 coins
-        updateStats(5, 1);
-
-        // Auto advance after 1.4 seconds for fast tempo
-        setTimeout(() => {
-          advanceNextQuestion();
-        }, 1400);
-
-      } else {
-        wrongCount++;
-        buttonElement.classList.add('wrong');
-        playSoundError();
-
-        // Reveal the correct button
-        allButtons.forEach(btn => {
-          if (btn.innerText.includes(question.correctAnswer)) {
-            btn.classList.add('reveal-correct');
-          }
-        });
-
-        explanationBox.innerText = `💡 Doğru Cevap: "${question.correctAnswer}". ${question.explanation}`;
-        explanationBox.classList.add('fail');
-        explanationBox.style.display = 'block';
-
-        // Show manual next button so child has time to read and learn
-        document.getElementById('nextQuestionBtn').style.display = 'flex';
-      }
-    }
-
-    function advanceNextQuestion() {
-      currentQuestionIndex++;
-      if (currentQuestionIndex < examQuestions.length) {
-        renderCurrentQuestion();
-      } else {
-        showFinalResults();
-      }
-    }
-
-    function playCurrentQuestionAudio() {
-      const q = examQuestions[currentQuestionIndex];
-      if (q) {
-        playSoundSuccess();
-        speakText(q.speechText || q.mainText);
-      }
-    }
-
-    // -------------------------------------------------------------------------
-    // 4. RESULTS & PERCENTAGE REPORT
-    // -------------------------------------------------------------------------
-    function showFinalResults() {
-      document.getElementById('quizCard').style.display = 'none';
-      const resultCard = document.getElementById('resultCard');
-      resultCard.style.display = 'block';
-
-      const total = examQuestions.length;
-      const percentage = Math.round((correctCount / total) * 100);
-
-      document.getElementById('percentageText').innerText = `%${percentage} BAŞARI`;
-      document.getElementById('scoreDetailText').innerText = `${total} Soruda ${correctCount} Doğru, ${wrongCount} Yanlış`;
-
-      const emoji = document.getElementById('resultEmoji');
-      const noteTitle = document.getElementById('teacherNoteTitle');
-      const noteContent = document.getElementById('teacherNoteContent');
-
-      if (percentage >= 90) {
-        emoji.innerText = "🏆";
-        noteTitle.innerText = "🌟 Öğretmen Notu: Mükemmel Başarı!";
-        noteContent.innerText = "Tebrikler! Haftanın tüm 7 gününü hem Türkçe hem İngilizce okunuşları ve anlamlarıyla eksiksiz öğrendin! Harika bir sonuç!";
-        playSoundFanfare();
-        triggerConfetti(100);
-        updateStats(100, 5); // Huge bonus
-      } else if (percentage >= 70) {
-        emoji.innerText = "⭐";
-        noteTitle.innerText = "👍 Öğretmen Notu: Çok Başarılı!";
-        noteContent.innerText = "Güzel bir sınav çıkardın! Birkaç küçük hatan oldu ancak günlerin çoğunu gayet iyi biliyorsun. 'Tekrar Sınav Ol' diyerek %100'e ulaşabilirsin!";
-        playSoundSuccess();
-        triggerConfetti(50);
-        updateStats(50, 3);
-      } else {
-        emoji.innerText = "🌱";
-        noteTitle.innerText = "💪 Öğretmen Notu: Pratik Yapmaya Devam!";
-        noteContent.innerText = "Günleri öğrenmeye çok iyi başladın! '7 Gün Kartı' sekmesinden günlerin okunuşlarını bir kez dinleyip tekrar sınav olmayı dene. Çok daha başarılı olacaksın!";
-        playSoundError();
-        updateStats(20, 1);
-      }
-    }
-
-    // -------------------------------------------------------------------------
-    // 5. DAYS STUDY CARDS & VOCAB RENDER
-    // -------------------------------------------------------------------------
-    function renderDaysStudyCards() {
-      const container = document.getElementById('daysListContainer');
-      container.innerHTML = '';
-
-      DAYS_DATA.forEach(d => {
-        const card = document.createElement('div');
-        card.className = 'day-card';
-        card.innerHTML = `
-          <div class="day-number">${d.num}</div>
-          <div class="day-info">
-            <div class="day-en">${d.emoji} ${d.en}</div>
-            <div class="day-tr">${d.tr} ${d.isWeekend ? '<span style="color:#EA580C;font-size:11px;">(Hafta Sonu)</span>' : ''}</div>
-            <div class="day-phonetic">Okunuşu: "${d.phonetic}"</div>
-          </div>
-          <button class="day-listen-btn" title="Telaffuzu Dinle">🔊</button>
-        `;
-        card.querySelector('.day-listen-btn').onclick = (e) => {
-          e.stopPropagation();
-          playSoundSuccess();
-          speakText(d.en);
-        };
-        card.onclick = () => {
-          playSoundSuccess();
-          speakText(`${d.en}. ${d.tr}`);
-        };
-        container.appendChild(card);
-      });
-    }
-
-    function renderVocabCards() {
-      const container = document.getElementById('vocabListContainer');
-      container.innerHTML = '';
-
-      EXTRA_VOCAB.forEach(v => {
-        const card = document.createElement('div');
-        card.className = 'day-card';
-        card.innerHTML = `
-          <div class="day-info">
-            <div class="day-en">${v.en}</div>
-            <div class="day-tr">${v.tr} • <span style="color:#3B82F6;font-size:11px;">${v.cat}</span></div>
-            <div class="day-phonetic">Okunuşu: "${v.phonetic}"</div>
-          </div>
-          <button class="day-listen-btn">🔊</button>
-        `;
-        card.querySelector('.day-listen-btn').onclick = (e) => {
-          e.stopPropagation();
-          playSoundSuccess();
-          speakText(v.en);
-        };
-        card.onclick = () => {
-          playSoundSuccess();
-          speakText(`${v.en}. ${v.tr}`);
-        };
-        container.appendChild(card);
-      });
-    }
-
-    // -------------------------------------------------------------------------
-    // 6. UI TAB SWITCHER
-    // -------------------------------------------------------------------------
-    function switchTab(tabId) {
-      playSoundSuccess();
-      document.getElementById('tabExam').style.display = (tabId === 'tabExam') ? 'block' : 'none';
-      document.getElementById('tabDays').style.display = (tabId === 'tabDays') ? 'block' : 'none';
-      document.getElementById('tabVocab').style.display = (tabId === 'tabVocab') ? 'block' : 'none';
-
-      document.getElementById('navExam').classList.toggle('active', tabId === 'tabExam');
-      document.getElementById('navDays').classList.toggle('active', tabId === 'tabDays');
-      document.getElementById('navVocab').classList.toggle('active', tabId === 'tabVocab');
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // -------------------------------------------------------------------------
-    // 7. STATS & STORAGE
-    // -------------------------------------------------------------------------
-    let coins = parseInt(localStorage.getItem('poko_coins') || '100');
-    let stars = parseInt(localStorage.getItem('poko_stars') || '12');
-
-    function updateStats(coinDelta, starDelta) {
-      coins += coinDelta;
-      stars += starDelta;
-      localStorage.setItem('poko_coins', coins);
-      localStorage.setItem('poko_stars', stars);
-      document.getElementById('coinCount').innerText = coins;
-      document.getElementById('starCount').innerText = stars;
-    }
-
-    // -------------------------------------------------------------------------
-    // 8. CELEBRATION CONFETTI
-    // -------------------------------------------------------------------------
-    function triggerConfetti(count = 40) {
-      const canvas = document.getElementById('confettiCanvas');
-      const ctx = canvas.getContext('2d');
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      const particles = [];
-      const colors = ['#F59E0B', '#10B981', '#3B82F6', '#EC4899', '#8B5CF6'];
-
-      for (let i = 0; i < count; i++) {
-        particles.push({
-          x: canvas.width / 2,
-          y: canvas.height / 3,
-          vx: (Math.random() - 0.5) * 12,
-          vy: (Math.random() - 1.5) * 10,
-          size: Math.random() * 8 + 4,
-          color: colors[Math.floor(Math.random() * colors.length)],
-          rotation: Math.random() * 360,
-          rotSpeed: (Math.random() - 0.5) * 10
-        });
-      }
-
-      let frame = 0;
-      function render() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-          p.x += p.vx;
-          p.y += p.vy;
-          p.vy += 0.35; // Gravity
-          p.rotation += p.rotSpeed;
-
-          ctx.save();
-          ctx.translate(p.x, p.y);
-          ctx.rotate((p.rotation * Math.PI) / 180);
-          ctx.fillStyle = p.color;
-          ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
-          ctx.restore();
-        });
-
-        frame++;
-        if (frame < 60) {
-          requestAnimationFrame(render);
-        } else {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-        }
-      }
-      render();
-    }
-
-    // -------------------------------------------------------------------------
-    // 9. SERVICE WORKER REGISTRATION FOR PWA
-    // -------------------------------------------------------------------------
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').then(reg => {
-          console.log('PWA Service Worker registered successfully:', reg.scope);
-        }).catch(err => {
-          console.log('PWA Service Worker registration failed:', err);
-        });
-      });
-    }
-
-    // -------------------------------------------------------------------------
-    // 10. INITIALIZATION
-    // -------------------------------------------------------------------------
-    window.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('coinCount').innerText = coins;
-      document.getElementById('starCount').innerText = stars;
-      renderDaysStudyCards();
-      renderVocabCards();
-      startNewExam();
-    });
-  </script>
+  <!-- Full 52-Unit Curriculum & Complete App Engine -->
+  <script src="./curriculum_data.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>

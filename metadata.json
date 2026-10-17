@@ -1,0 +1,6 @@
+{
+  "name": "Poko English Kids",
+  "description": "1., 2., 3. ve 4. sınıf MEB müfredatına tam uyumlu, Star Wars & süper kahraman kostümleri, Galaktik Lig, sesli Poko Buddy sohbeti ve mini oyunlarla dolu İngilizce öğrenme macerası.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
